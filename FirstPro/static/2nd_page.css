@@ -1,0 +1,45 @@
+.ticket-button {
+  display: block;
+  margin: 10px;
+  cursor: pointer; /* Add cursor pointer to indicate interactivity */
+}
+.ticket-data {
+  display: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  position: absolute;
+  z-index: 1; /* Ensure data appears on top */
+}
+.ticket-button:hover + .ticket-data {
+  display: block;
+}
+.ticket-data.visible {
+  display: block; /* Show the ticket data when visible class is applied */
+}
+
+.ticket-button {
+  display: block;
+  margin: 10px;
+  cursor: pointer; /* Add cursor pointer to indicate interactivity */
+}
+.ticket-data {
+  display: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  position: absolute;
+  z-index: 1; /* Ensure data appears on top */
+}
+.ticket-button:hover + .ticket-data {
+  display: block;
+}
+.ticket-data.visible {
+  display: block; /* Show the ticket data when visible class is applied */
+}
+.emp_na{
+  align-self:center;
+}
+textarea{
+  resize: none;    
+}

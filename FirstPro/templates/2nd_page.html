@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static '2nd_page.css' %}"/>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Complaint Management</title>
+</head>
+<body>
+    <div class="header">
+        <img src="https://www.bsesdelhi.com/image/layout_set_logo?img_id=91257&t=1690795118097">
+
+        <div class="emp_na">
+
+            <div class ='emp_label'><label for="emp_name">Emp Name:</label></div>
+            <input type="text" id="usernameInput" name="empnameone" value="{{ username }}"></input>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="button-container">
+            <a class="btn btn-danger" id="button2" href="{% url 'test_3_page' %}">Register New Complaint</a>
+        </div>
+    </div>
+
+        
+
+        <div class="frame">
+            <div id="frameContent"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2023 Complaint Management System. All rights reserved.</p>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const frameContent = document.getElementById('frameContent');
+        const username = '{{ username|escapejs }}'; // Escape the username for JavaScript usage
+
+        // Fetch data from the server using the username as a query parameter
+        fetch(`/get_data/?emp_id=${username}`)
+            .then(response => response.json())
+            .then(dataList => {
+                const dropdownHtml = generateDropdownsHtml(dataList);
+                frameContent.innerHTML = dropdownHtml;
+                setupDropdownListeners();
+            })
+            .catch(error => console.error('Error fetching data:', error));
+
+        // Function to generate dropdowns HTML based on the data list
+        function generateDropdownsHtml(dataList) {
+            return dataList.map(data => {
+                const ticketId = data.ticket_id;
+                const ticketButtonHtml = `<button class="ticket-button" data-ticket-id="${ticketId}">${ticketId}</button>`;
+                const ticketDataHtml = generateTicketDataHtml(data);
+
+                return `
+                    <div class="dropdown">
+                        ${ticketButtonHtml}
+                        <div class="ticket-data">${ticketDataHtml}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Function to generate ticket data HTML
+        function generateTicketDataHtml(data) {
+            const excludedKeys = ['_id', 'ticket_id'];
+            return Object.keys(data)
+                .filter(key => !excludedKeys.includes(key))
+                .map(key => `<p><strong>${key}:</strong> ${data[key]}</p>`)
+                .join('');
+        }
+
+        // Setup event listeners for dropdowns
+        function setupDropdownListeners() {
+            const ticketButtons = document.querySelectorAll('.ticket-button');
+            ticketButtons.forEach(button => {
+                button.addEventListener('click', handleTicketButtonClick);
+            });
+
+            // Setup click event listener for "Register New Complaint" button
+            const registerButton = document.getElementById('button2');
+            registerButton.addEventListener('click', handleRegisterButtonClick);
+        }
+
+        // Event handler for ticket button click
+        function handleTicketButtonClick(event) {
+            const ticketButton = event.currentTarget;
+            const ticketData = ticketButton.nextElementSibling;
+
+            // Hide other visible ticket data
+            const visibleTicketData = document.querySelector('.ticket-data.visible');
+            if (visibleTicketData && visibleTicketData !== ticketData) {
+                visibleTicketData.classList.remove('visible');
+            }
+
+            ticketData.classList.toggle('visible');
+        }
+
+        // Event handler for "Register New Complaint" button click
+        function handleRegisterButtonClick() {
+            window.location.href = 'test_3.html'; // Redirect to test_3.html
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{% static 'setup.css' %}"/>
+<head>
+    <title>HOME</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'setup.js' %}"></script>
+    <link href="https://www.bsesdelhi.com/o/BSESHome-theme/images/bses.ico" rel="icon" />
+    <header class="normal">
+        
+      <div>  <img src="https://www.bsesdelhi.com/image/layout_set_logo?img_id=91257&t=1690795118097"></div>
+      <div class="emp_na">
+        <label for="emp_name">Emp ID:</label>
+        <textarea id="emp_na" row="1" cols="20"></textarea>
+    </div>
+
+    </header>
+    
+</head>
+<body>
+   <center> <h1>ISSUE REGISTRATION</h1><center>
+    <form>
+        <div class="container cont">
+            
+            <div class="column item1">
+                <select id="circleDropdown">
+                    <option value="" disabled selected>Select a Circle</option>
+                    {% for item in data %}
+                    <option value="{{ item.CIRCLENAME }}">{{ item.CIRCLENAME }}</option>
+                    {% endfor %}
+                </select>
+            </div>    
+            <div class="column item2">    
+                <label for="subdivision">SubDivision:</label>
+                <select id="subDropdown">
+                </select>
+            </div>    
+            <div class="column item3">
+                <label for="phone">Assembly Constituency:</label>
+                <input type="tel" id="phone" name="phone"><br>
+            </div>
+            
+            <div class="column item4">
+                <label for="address">Ward No:</label>
+                <input type="text" id="address" name="address"><br>
+            </div>    
+            <div class="column item5">    
+                <label for="city">Meeting Attended By:</label>
+                <input type="text" id="city" name="city"><br>
+            </div>
+            <div class="column item6">    
+                <label for="country">Type Of Issue:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+            <div class="column item7">    
+                <label for="country">BRPL View:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+            <div class="column item8">    
+                <label for="country">Target Date:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+            <div class="column item9">    
+                <label for="country">Divsison:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+            <div class="column item10">    
+                <label for="country">Issue Raised By:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+            <div class="column item11">    
+                <label for="country">Councelor Name:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+            <div class="column item12">    
+                <label for="country">Meeting Date:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+            <div class="column item13">    
+                <label for="country">Meeting Attended By:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+            <div class="column item14">    
+                <label for="country">Description:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+            <div class="column item15">    
+                <label for="country">Action Plan:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+            <div class="column item16">    
+                <label for="country">Attachment:</label>
+                <input type="text" id="country" name="country"><br>
+            </div>
+
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

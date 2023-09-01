@@ -1,0 +1,44 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{%static 'test.css'%}">
+<head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <!-- <link href="https://www.bsesdelhi.com/o/BSESHome-theme/images/bses.ico" rel="icon" /> -->
+    <link href="/templates/assets/bses.ico" rel="icon" />
+    <title>BSES</title>
+
+</head>
+<body>
+   <center> <div>
+    <h2>.       .</h2>
+    <h1>Need Validation</h1>
+    <center><h6>Management System</h6></center>
+    <h2>.           .</h2>
+   </div></center>
+<form  method="post">       
+  <div class="center">
+    {% csrf_token %}
+    <h3>.</h3>
+    <h3>.</h3>
+    <center><img src="https://www.bsesdelhi.com/image/layout_set_logo?img_id=91257&t=1690795118097"></center>
+    <h3>.</h3>
+    <h3>.</h3>
+    <label1>E-mail or username </label1> <br>  
+    <input type="text" id="user" placeholder="example@" name="username" required>
+  </br>
+  <label2>Password : </label2> <br>  
+  <input type="password"  id="pass placeholder="Password@" name="password" required>  
+</br>
+<button type="submit">Login</button><br>
+</br>
+    <h4>Can't remember your password?</h4><br>
+</br>
+    <a href='#'>Reset Password</a>
+</div>
+
+</form>
+
+</body>
+</html>
+

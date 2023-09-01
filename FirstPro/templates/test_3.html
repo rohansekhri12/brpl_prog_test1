@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{% static 'test3.css' %}"/>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <head>
+        <title>HOME</title>
+        <!-- <link href="https://www.bsesdelhi.com/o/BSESHome-theme/images/bses.ico" rel="icon" /> -->
+        <link href="/templates/assets/bses.ico" rel="icon" />
+        
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="{%static 'test3.js'%}"></script>
+        
+        <header class="normal">
+            
+          <div class='bses_icon'>  <img src="https://www.bsesdelhi.com/image/layout_set_logo?img_id=91257&t=1690795118097"></div>
+          {% comment %} <div class="ddt"><input type="text" id="currentDateTime" readonly></div> {% endcomment %}
+          <div class="emp_na">
+
+            <div class ='emp_label'><label for="emp_name">Emp Name:</label></div>
+            <input type="text" id="usernameInput" name="empnameone" value="{{ username }}"></input>
+        </div>
+    
+        </header>
+        
+    </head>
+    <body>
+       <center> <h1>ISSUE REGISTRATION</h1><center>
+        <form method="post" action="{% url 'upload_form' %}" enctype="multipart/form-data">
+            <input type="hidden" id="usernameInputt" name="empname" value="{{ username }}">
+            {% csrf_token %}
+            <div class="container cont">
+                
+                <div class="column item1"><label for="circle_dropdown">CIRCLE:</label><br>
+                    <select id="circle_dropdown" name="circleId">
+                        <option value=''>-SELECT CIRCLE--</option>
+                        {% for item in data%}
+                        <option value="{{item.CIRCLEID}}">{{item.CIRCLENAME}}</option>
+                        {% endfor %}
+                    </select></div></br>    
+                    <div class="column item2"><label for="division_dropdown">DIVISION:</label><br>
+                        <select id="division_dropdown" name="divisionId">
+                            <option value=''>SELECT DIVISION</option>
+                        </select></div></br>
+                        <div class="column item4">
+                            <label for="address">Ward No:</label>
+                            <input type="text" id="ward_id" placeholder="WARD NUMBER"name="wardNo"><br>
+                        </div>    
+                        <div class="column item5">    
+                            <label for="city">MEETING HOSTED BY :</label>
+                            <input type="text" id="host_id" placeholder="NAME OF THE HOST" name="meetingHost"><br>
+                        </div>
+                        <div class="column item6"><label for="leftDropdown4">TYPES OF ISSUES:</label><br>
+                            <select id="issuetype_id" name="issueType">
+                                <option value="">--ISSUE NAME--</option>
+                            {% for item in issues_type%}
+                                <option value="{{item.ISSUE_ID}}">{{item.ISSUE_NAME}}</option>
+                            {% endfor %}
+                            </select></div></br>
+                        <div class="column item7">    
+                            <label for="country">BRPL View:</label>
+                            <br><input type="text" id="brplview_id" placeholder="BRPL VIEWS" name="brplView"></br><br>
+                        </div>
+                        
+                        <div class="column item8">
+                            <div class="calender-op" >
+                            <div class="input-group">
+                                <label for="text">TARGET DATE:</label>
+                              <input type="date" class="form-cont" id="dateInput" name="targetDate">
+                             
+                              
+                            </div>
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="column item9">    
+                            <label for="subdivision_dropdown">SUBDIVISION:</label><br>
+                            <select id="subdivision_dropdown" name="subDivision">
+                                <option value=''>SELECT SUB-DIVISION</option>
+                            </select></div></br>
+                        <div class="column item10">    
+                            <label for="rightDropdown2">ISSUED RAISED BY:</label><br>
+                            <select id="issueraised_id" name="issueRaisedBy">
+                                <option value=''>ISSUED RAISED BY</option>
+                            <option value=""></option>
+                            {% for item in issues_raised%}
+                                <option value="{{item.ISSUE_RAISED_ID}}">{{item.ISSUE_RAISED_NAME}}</option>
+                            {% endfor %}
+                            </select></div></br>
+                        <div class="column item11">    
+                            <label for="rightDropdown3">COUNCELOR:</label><br>
+                            <input type="text" id="councelor_id" placeholder="COUNCELOR NAME" name="counselor">
+                            </div></br>
+                            <div class="column item12">    
+                                <label for="country">METTING DATE:</label>
+                                <br><input type="text" id="meetingdate_id" placeholder="MEETING DATE" name="meetingDate"></br><br>
+                            </div>
+                        <div class="column item13">    
+                            <label for="country">MEETING ATTENDED BY:</label>
+                            <input type="text" id="attended_id" placeholder="MEETING ATTENDE" name="meetingAttendees"><br>
+                        </div>
+                        <div class="column item14">    
+                           <label for="country">DESCRIPTION:</label>
+                            <br><input type="text" id="description_id" placeholder="DESCRIPTION"name="description"></br><br>
+                        </div>
+                        <div class="column item15">    
+                            <label for="country">ACTION PLAN:</label>
+                            <br><input type="text" id="actionplan_id"placeholder="ACTION PLAN" name="actionplan"></br><br>
+                        </div>
+                        <div class="column item16">    
+                            <label for="file">ATTACHMENT:</label>
+                            <input type="file" id="file_id" name="file"><br>
+                        </div>         
+                        <button class="but-1" id="submitBtn" type="submit">Submit</button>        
+        </form>
+       
+       
+
+
+    </body>
+    </html>
+       

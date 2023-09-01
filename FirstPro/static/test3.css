@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.normal{
+    background-color:#f2f2f2;;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+.bses_icon{
+    align-self:center;
+}
+.emp_na{
+    align-self:center;
+}
+textarea{
+    resize: none;    
+}
+button:hover{
+    opacity: 0.07;
+}
+button{
+    background-color: rgb(253, 67, 5);
+}        
+.cont {
+    background-color:#e9ded9; 
+    display: grid; 
+     /* margin:0px auto;  */
+    /* flex-direction: column;
+    align-items:flex-start;
+    flex-wrap: wrap; */
+    grid-template-rows: repeat(3 ,1 fr);
+    grid-template-columns: repeat(4 ,1 fr);
+    row-gap: 30px;
+    column-gap: 12px;
+    border-radius: 20px;
+    grid-gap: 3px;
+
+}
+        
+.column {
+    padding: 10px;
+}
+
+.item1{
+    grid-column-start: 1;
+    grid-row-start: 1;
+    border-radius: 10px;
+}
+.item2{
+    grid-column-start: 1;
+    grid-row-start: 2;
+    border-radius: 10px;
+}
+.item3{
+    grid-column-start: 1;
+    grid-row-start: 3;
+    border-radius: 10px;
+}
+.item4{
+    grid-column-start: 1;
+    grid-row-start: 4;
+    border-radius: 10px;
+}
+.item5{
+    grid-column-start: 2;
+    grid-row-start: 1;
+    border-radius: 10px;
+}
+.item6{
+    grid-column-start: 2;
+    grid-row-start: 2;
+    border-radius: 10px;
+}
+.item7{
+    grid-column-start: 2;
+    grid-row-start: 3;
+    border-radius: 10px;
+}
+.item8{
+
+    grid-column-start: 2;
+    grid-row-start: 4;
+    border-radius: 10px;
+    justify-content: center;
+    
+}
+
+.item9{
+    grid-column-start: 3;
+    grid-row-start: 1;
+    border-radius: 10px;
+}
+.item10{
+    grid-column-start: 3;
+    grid-row-start: 2;
+    border-radius: 10px;
+}
+.item11{
+    grid-column-start: 3;
+    grid-row-start: 3;
+    border-radius: 10px;
+}
+.item12{
+    grid-column-start: 3;
+    grid-row-start: 4;
+    border-radius: 10px;
+}
+.item13{
+    grid-column-start: 4;
+    grid-row-start: 1;
+    border-radius: 10px;
+}
+.item14{
+    grid-column-start: 4;
+    grid-row-start: 2;
+    border-radius: 10px;
+}
+.item15{
+    grid-column-start: 4;
+    grid-row-start: 3;
+    border-radius: 10px;
+}
+.item16{
+    grid-column-start: 4;
+    grid-row-start: 4;
+    border-radius: 10px;
+}
+
+.calendar-icon {
+    
+    cursor: pointer;
+}
+.input-group{
+    padding:0px 5px;
+}
+.calender-op{
+    display: flex;
+    border-radius: 10px;
+}
+.but-1{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    border-radius: 20px;
+    grid-row-start:5;
+}
+.ddt{
+    width:200px;
+    
+}
+
+

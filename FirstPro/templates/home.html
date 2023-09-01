@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    {% comment %} <select id="circleDropdown">
+        <option value="" disabled selected>Select a Circle</option>
+    </select> {% endcomment %}
+    <h1>hello my name is {name} </h1> 
+    <select id="dropdown">
+        {% for item in data %}
+          <option value="{{ item.CIRCLENAME }}">{{ item.CIRCLENAME }}</option>
+        {% endfor %}
+    </select>
+    <script>
+        
+          
+    </script>
+</body>
+</html>
